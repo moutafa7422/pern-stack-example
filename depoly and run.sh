@@ -80,7 +80,7 @@ create_backend_environment() {
   cd pern-stack-example/api
   npm install
   npm audit fix
-  sed -i "/if (env === "demo") {/a\    process.env.HOST = "'"$IP_ADDRESS"'";\n    process.env.PGUSER = "Moustafa Tarek";\n    process.env.PGPASSWORD = "161122";\n    process.env.PGHOST = "'"$IP_ADDRESS"'";\n    process.env.PGPORT = "5000";\n    process.env.PGDATABASE = "demo_app_db";" webpack.config.js
+  sed -i "/if (env === "demo") {/a\    process.env.HOST = "'"$IP_ADDRESS"'";\n    process.env.PGUSER = "moustafa";\n    process.env.PGPASSWORD = "moustafa";\n    process.env.PGHOST = "'"$IP_ADDRESS"'";\n    process.env.PGPORT = "5555";\n    process.env.PGDATABASE = "demo_app_db";" webpack.config.js
   ENVIRONMENT=demo npm run build
 }
 

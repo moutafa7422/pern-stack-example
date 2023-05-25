@@ -30,21 +30,21 @@ EOF
   handel_errors "Failed to create ip config"
 }
 
-# Function to create a Linux user
+# create a Linux user
 create_linux_user() {
   echo "Creating Linux user 'node'..."
   sudo adduser node
   echo "Linux user 'node' created."
 }
 
-# Function to retrieve the IP address using a regular expression
+#  retrieve the IP address using a regular expression
 retrieve_ip_address() {
   echo "Retrieving IP address..."
   IP_ADDRESS=$(ip -o -4 addr show enp0s3 | awk '{print $4}' | sed 's/\/.*$//')
   echo "IP address retrieved: $IP_ADDRESS"
 }
 
-# Function to deploy and configure PostgreSQL
+# Function to deploy and configure Postgre SQL
 install_postgres() {
     sudo apt update
     sudo apt install postgresql postgresql-contrib
@@ -99,30 +99,20 @@ start_application() {
 
 }
 
-# Main script
 
-# Install Node.js 14.x
 install_nodejs
 
-# Create IP configuration file
 create_ip_config
 
-# Create Linux user 'node'
 create_linux_user
 
-# Retrieve the IP address using a regular expression
 retrieve_ip_address
 
-# Deploy and configure PostgreSQL
 install_postgres
 
-# Run UI tests in a coprocess
 run_ui_tests
 
-# Build the UI
 build_ui
 
-# Create the backend environment
 create_backend_environment
 
-# Package
